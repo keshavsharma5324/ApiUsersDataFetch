@@ -100,77 +100,7 @@ class _MyAddressesState extends State<MyAddresses> {
           Container(
             child: Column(
               children: [
-                /*Container(
-                  height: 36,
-                  child: Row(
-                    children: [
-                      SvgPicture.asset(
-                        arrowBackward,
-                      ),
-                      SizedBox(
-                        width: 30,
-                      ),
-                      Container(
-                        width: 200,
-                        child: Text(
-                          "My Addresses",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontFamily: 'SourceSansPro',
-                            fontWeight: FontWeight.w600,
-                            color: Color(0xff3D3D3D),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 32,
-                ),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
-                  height: 77,
-                  child: SingleChildScrollView(
-                      child: TextField(
-                    decoration: InputDecoration(
-                      border: new OutlineInputBorder(
-                        borderSide: new BorderSide(color: Colors.white),
-                        /* borderRadius: const BorderRadius.all(
-            const Radius.circular(8.0),
-          ),*/
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                        borderSide: BorderSide(
-                          color: Colors.white,
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Colors.white,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      //contentPadding: EdgeInsets.symmetric(vertical:-5),
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: SvgPicture.asset(searchAddresses),
-                      ),
-                      hintText: "No Saved address found",
-                      hintStyle: TextStyle(
-                        fontFamily: 'SourceSansPans',
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff3D3D3D),
-                      ),
-                      fillColor: Colors.white,
-                      filled: true,
-                      //border: InputBorder.none,
-                    ),
-                  )),
-                ),*/
+              
                 data.length == 0
                     ? Column(
                         children: [

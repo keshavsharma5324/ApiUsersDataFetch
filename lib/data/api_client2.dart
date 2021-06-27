@@ -2,15 +2,15 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 
-class ApiClient{
+class ApiClient2{
 
-    static final ApiClient _instance = ApiClient._internal();
+    static final ApiClient2 _instance = ApiClient2._internal();
 
-  factory ApiClient() {
+  factory ApiClient2() {
     return _instance;
   }
 
-  ApiClient._internal();/*{
+  ApiClient2._internal();/*{
     injectInterceptor();
   }*/
 
@@ -198,7 +198,7 @@ class ApiClient{
 
   dynamic getUsers(String accessToken) async {
     try {
-      var data = await hitApi("users?page=2",
+      var data = await hitApi("users?page=1",
            isDelete: false);
       return data;
     } catch (e) {

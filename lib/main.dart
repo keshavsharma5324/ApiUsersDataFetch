@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:userdetails/myUsersPage1.dart';
 
-import 'myaddresses.dart';
+import 'myUsersPage2.dart';
 
 
 
@@ -20,8 +21,41 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: MyAddresses(),
+      home: MyHomeScreen(),
     );
   }
 }
 
+class MyHomeScreen extends StatelessWidget {
+  
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(child: Stack(children: [Column(mainAxisAlignment: MainAxisAlignment.center,children: [
+      Container(width: MediaQuery.of(context).size.width,
+        child: FlatButton(onPressed: (){
+           Navigator.of(context).push(
+                   
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          MyUsers1()
+                    ),
+                  );
+        }, child: Text("Go to First Page"),color: Colors.amber,),
+      ),
+      SizedBox(height: 150,),
+       Container(width: MediaQuery.of(context).size.width,
+         child: FlatButton(onPressed: (){
+            Navigator.of(context).push(
+                   MaterialPageRoute(
+                      builder: (context) =>
+                         MyUsers()
+                    ),
+                  );
+         }, child: Text("Go to Second Page"),color: Colors.blueAccent,),
+       )
+    ],)],),
+      
+    );
+  }
+}

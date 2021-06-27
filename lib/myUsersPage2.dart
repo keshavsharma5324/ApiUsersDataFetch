@@ -1,14 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:flutter_cubit/flutter_cubit.dart';
-import 'package:userdetails/base/adrress_cubit.dart';
-import 'package:userdetails/utils/ImageHelper.dart';
 
-import 'user_model.dart';
+import 'package:userdetails/base/base_state.dart';
+import 'package:userdetails/user_Model.dart';
 
-import 'base/base_state.dart';
+
+import 'cubit/users_cubit_page2.dart';
 import 'data/api_client.dart';
 
 getSnackBar(String msg, String actionLable, GlobalKey<ScaffoldState> key) {
@@ -30,13 +29,13 @@ getSnackBar(String msg, String actionLable, GlobalKey<ScaffoldState> key) {
   return snackBar;
 }
 
-class MyAddresses extends StatefulWidget {
+class MyUsers extends StatefulWidget {
   @override
-  _MyAddressesState createState() => _MyAddressesState();
+  _MyUsersState createState() => _MyUsersState();
 }
 
-class _MyAddressesState extends State<MyAddresses> {
-  AddressCubit _addressCubit;
+class _MyUsersState extends State<MyUsers> {
+  UsersCubit _UsersCubit;
   final GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
   List<Datum> data = [];
 
@@ -44,17 +43,17 @@ class _MyAddressesState extends State<MyAddresses> {
   void initState() {
     super.initState();
 
-    _addressCubit = AddressCubit(apiClient: ApiClient());
+    _UsersCubit = UsersCubit(apiClient: ApiClient());
   }
 
   @override
   Widget build(BuildContext context) {
     return CubitProvider(
-        create: (context) => _addressCubit,
+        create: (context) => _UsersCubit,
         child: Scaffold(
           key: _globalKey,
           appBar: AppBar(title: Text("List of Users"),),
-          body: CubitConsumer<AddressCubit, BaseState>(
+          body: CubitConsumer<UsersCubit, BaseState>(
               builder: (_, state) {
                 return UI();
               },
@@ -71,7 +70,7 @@ class _MyAddressesState extends State<MyAddresses> {
                   // hideLoader();
                   print("SuccessState");
                   UserModel _userModel = UserModel.fromMap(state.response);
-                  print("AddressDataLength => ${_userModel.data.length}");
+                  print("UsersDataLength => ${_userModel.data.length}");
                   setState(() {
                     data = _userModel.data;
                   });
@@ -123,7 +122,7 @@ class _MyAddressesState extends State<MyAddresses> {
                           itemCount: data.length == 0 ? 0 : data.length,
                           itemBuilder: (context, index) {
                             //data = data[index];
-                            // Address _addressModel = data[index];
+                            // Users _UsersModel = data[index];
                             return Card(
                               margin: EdgeInsets.symmetric(
                                   vertical: 10, horizontal: 15),
